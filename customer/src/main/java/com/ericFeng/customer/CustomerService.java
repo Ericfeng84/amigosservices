@@ -1,9 +1,10 @@
 package com.ericFeng.customer;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 @Service
-public record CustomerService(CustomerRepository customerRepository) {
+public record CustomerService(CustomerRepository customerRepository, RestTemplate restTemplate) {
     public void registerCustomer(CustomerRegistrationRequest request){
         Customer customer=Customer.builder().
                 firstName(request.firstName())
@@ -13,7 +14,18 @@ public record CustomerService(CustomerRepository customerRepository) {
         //todo check if email valid
         //todo check email is not token
         //todo store customer in db
-        customerRepository.save(customer);
+        customerRepository.saveAndFlush(customer);
+//        check Fraud
+        CheckFraudResponse checkFraudResponse = restTemplate.getForObject(
+                "http://localhost:8081/.api/v1/fraud/{customerID}",
+                CheckFraudResponse.class, customer.getId()
+        );
+
+        if (checkFraudResponse.isFraud()){
+            throw new IllegalStateException("Fraud");
+        }
+
+
 
     }
 }

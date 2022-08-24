@@ -13,7 +13,7 @@ public record FraudController(FraudService fraudService) {
     @GetMapping(path = "{customerId}")
     public CheckFraudResponse CheckFraudHistory(@PathVariable("customerId") Integer customerId){
         boolean IsFraud = fraudService.isFraud(customerId);
-        log.info("Check Fraud {}",customerId)
+        log.info("Check Fraud {}",customerId);
         return new CheckFraudResponse(IsFraud);
     };
 }

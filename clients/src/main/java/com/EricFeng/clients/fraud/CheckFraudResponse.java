@@ -1,4 +1,4 @@
-package com.ericFeng.customer;
+package com.EricFeng.clients.fraud;
 
 
 public record CheckFraudResponse(

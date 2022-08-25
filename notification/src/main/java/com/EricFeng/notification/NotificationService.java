@@ -1,4 +1,4 @@
-package com.EricFeng;
+package com.EricFeng.notification;
 
 import com.EricFeng.clients.notification.NewNotification;
 import lombok.AllArgsConstructor;

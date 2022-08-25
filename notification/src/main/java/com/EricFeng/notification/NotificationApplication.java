@@ -1,4 +1,4 @@
-package com.ericFeng.customer;
+package com.EricFeng.notification;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,15 +7,14 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication(
         scanBasePackages = {
-                "com.ericFeng.customer",
-                "com.ericfeng.amqp"
-        }
-
+        "com.EricFeng.notification",
+        "com.ericfeng.amqp"}
 )
 @EnableEurekaClient
-@EnableFeignClients(basePackages = "com.EricFeng.clients")
-public class CustomerApplication {
+@EnableFeignClients
+public class NotificationApplication {
     public static void main(String[] args) {
-        SpringApplication.run(CustomerApplication.class, args);
+        SpringApplication.run(NotificationApplication.class, args);
     }
+
 }

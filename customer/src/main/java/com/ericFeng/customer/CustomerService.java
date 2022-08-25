@@ -4,6 +4,7 @@ import com.EricFeng.clients.fraud.CheckFraudResponse;
 import com.EricFeng.clients.fraud.FraudClient;
 import com.EricFeng.clients.notification.NewNotification;
 import com.EricFeng.clients.notification.NotificationClient;
+import com.ericfeng.amqp.RabbitMQMessageProducer;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -11,7 +12,8 @@ import org.springframework.web.client.RestTemplate;
 public record CustomerService(CustomerRepository customerRepository,
                               RestTemplate restTemplate,
                               FraudClient fraudClient,
-NotificationClient notificationClient) {
+                              RabbitMQMessageProducer rabbitMQMessageProducer,
+                              NotificationClient notificationClient) {
 
     public void registerCustomer(CustomerRegistrationRequest request){
         Customer customer=Customer.builder().
@@ -35,7 +37,13 @@ NotificationClient notificationClient) {
             throw new IllegalStateException("Fraud");
         }
 
-        notificationClient.CreateNotification(new NewNotification(customer.getId(),"test2"));
+        NewNotification newNotification=
+              new NewNotification(customer.getId(),"test2");
+
+        rabbitMQMessageProducer.publish(newNotification,
+                "internal.exchange",
+                "internal.notification.routing-key");
+
 
 
 

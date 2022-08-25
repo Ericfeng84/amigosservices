@@ -1,6 +1,5 @@
-package com.EricFeng;
+package com.EricFeng.notification;
 
-import com.EricFeng.clients.fraud.CheckFraudResponse;
 import com.EricFeng.clients.notification.NewNotification;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;

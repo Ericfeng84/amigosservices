@@ -1,4 +1,4 @@
-package com.EricFeng;
+package com.EricFeng.notification;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

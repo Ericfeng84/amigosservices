@@ -29,8 +29,9 @@
     <spring.boot.maven.plugin.version>2.5.7</spring.boot.maven.plugin.version>
     <spring.boot.dependencies.version>2.5.7</spring.boot.dependencies.version>
     <spring.cloud-version>2020.0.3</spring.cloud-version>
-    <image>amigoscode/${project.artifactId}:${project.version}</image>
+    <image>fengkang84/${project.artifactId}:${project.version}</image>
   </properties>
+
 
   <dependencyManagement>
     <dependencies>
@@ -89,19 +90,19 @@
         <plugin>
           <groupId>com.google.cloud.tools</groupId>
           <artifactId>jib-maven-plugin</artifactId>
-          <version>3.1.4</version>
+          <version>3.2.1</version>
           <configuration>
             <from>
-              <image>eclipse-temurin:17@sha256:2b47a8ea946ce1e5365a1562414ed576e378b7b670cadff3fb98ebecf2890cdc</image>
+              <image>eclipse-temurin:17@sha256:369a42b3874fe82fcc9a2de6066d3d4fed9822b00e5ea9fba2454c9d9a55ee87</image>
               <platforms>
                 <platform>
                   <architecture>arm64</architecture>
                   <os>linux</os>
                 </platform>
-                <platform>
-                  <architecture>amd64</architecture>
-                  <os>linux</os>
-                </platform>
+<!--                <platform>-->
+<!--                  <architecture>amd64</architecture>-->
+<!--                  <os>linux</os>-->
+<!--                </platform>-->
               </platforms>
             </from>
             <to>
@@ -121,6 +122,7 @@
         </plugin>
       </plugins>
     </pluginManagement>
+
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>

@@ -5,6 +5,7 @@ import com.EricFeng.clients.fraud.FraudClient;
 import com.EricFeng.clients.notification.NewNotification;
 import com.EricFeng.clients.notification.NotificationClient;
 import com.ericfeng.amqp.RabbitMQMessageProducer;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -13,7 +14,8 @@ public record CustomerService(CustomerRepository customerRepository,
                               RestTemplate restTemplate,
                               FraudClient fraudClient,
                               RabbitMQMessageProducer rabbitMQMessageProducer,
-                              NotificationClient notificationClient) {
+                              NotificationClient notificationClient,
+                              KafkaTemplate<String, String> kafkaTemplate) {
 
     public void registerCustomer(CustomerRegistrationRequest request){
         Customer customer=Customer.builder().
@@ -43,6 +45,11 @@ public record CustomerService(CustomerRepository customerRepository,
         rabbitMQMessageProducer.publish(newNotification,
                 "internal.exchange",
                 "internal.notification.routing-key");
+
+
+        kafkaTemplate.send("notification", newNotification.toString());
+
+
 
 
 

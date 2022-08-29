@@ -7,6 +7,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
 
+
 @SpringBootApplication(
         scanBasePackages = {
                 "com.ericFeng.customer",

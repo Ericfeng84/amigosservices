@@ -13,7 +13,8 @@ public record  CustomerController (CustomerService customerService){
 
     @PostMapping
     public void registerCustomer(@RequestBody CustomerRegistrationRequest customerRequest){
-        log.info("new customer registration {}", customerRequest);
+        log.info("new customer registration {} 43434", customerRequest);
+
         customerService.registerCustomer(customerRequest);
     }
 }

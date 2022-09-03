@@ -1,0 +1,4 @@
+com/EricFeng/clients/notification/NewNotification.class
+com/EricFeng/clients/fraud/CheckFraudResponse.class
+com/EricFeng/clients/notification/NotificationClient.class
+com/EricFeng/clients/fraud/FraudClient.class

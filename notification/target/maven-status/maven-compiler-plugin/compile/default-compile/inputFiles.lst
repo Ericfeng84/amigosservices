@@ -1,0 +1,8 @@
+/Users/fengkang/Desktop/amigosservices/notification/src/main/java/com/EricFeng/notification/NotificationApplication.java
+/Users/fengkang/Desktop/amigosservices/notification/src/main/java/com/EricFeng/notification/NotificationController.java
+/Users/fengkang/Desktop/amigosservices/notification/src/main/java/com/EricFeng/notification/NotificationRepository.java
+/Users/fengkang/Desktop/amigosservices/notification/src/main/java/com/EricFeng/notification/rabbitmq/NotificationConsumer.java
+/Users/fengkang/Desktop/amigosservices/notification/src/main/java/com/EricFeng/notification/NotificationConfig.java
+/Users/fengkang/Desktop/amigosservices/notification/src/main/java/com/EricFeng/notification/Notification.java
+/Users/fengkang/Desktop/amigosservices/notification/src/main/java/com/EricFeng/notification/NotificationService.java
+/Users/fengkang/Desktop/amigosservices/notification/src/main/java/com/EricFeng/notification/kafka/NotificationConsumerKafka.java

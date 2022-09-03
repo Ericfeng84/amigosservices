@@ -1,0 +1,6 @@
+com/EricFeng/fraud/FraudRepository.class
+com/EricFeng/fraud/FraudController.class
+com/EricFeng/fraud/FraudService.class
+com/EricFeng/fraud/FraudCheckHistory$FraudCheckHistoryBuilder.class
+com/EricFeng/fraud/FraudCheckHistory.class
+com/EricFeng/fraud/FraudApplication.class

@@ -12,14 +12,9 @@
         <module name="clients" />
         <module name="amqp" />
         <module name="fraud" />
+        <module name="kafka" />
         <module name="customer" />
         <module name="eureka_Server" />
-      </profile>
-      <profile name="Annotation profile for amigosservices" enabled="true">
-        <sourceOutputDir name="../Kafka/target/generated-sources/annotations" />
-        <sourceTestOutputDir name="../Kafka/target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <module name="kafka" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

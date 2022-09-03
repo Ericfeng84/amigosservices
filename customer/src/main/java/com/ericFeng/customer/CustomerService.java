@@ -9,6 +9,8 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.List;
+
 @Service
 public record CustomerService(CustomerRepository customerRepository,
                               RestTemplate restTemplate,
@@ -42,17 +44,18 @@ public record CustomerService(CustomerRepository customerRepository,
         NewNotification newNotification=
               new NewNotification(customer.getId(),"test2");
 
-        rabbitMQMessageProducer.publish(newNotification,
-                "internal.exchange",
-                "internal.notification.routing-key");
+//        rabbitMQMessageProducer.publish(newNotification,
+//                "internal.exchange",
+//                "internal.notification.routing-key");
 
 
         kafkaTemplate.send("notification", newNotification.toString());
 
 
 
+    }
 
-
-
+    public List<Customer> getAllCustomer() {
+        return customerRepository.findAll();
     }
 }
